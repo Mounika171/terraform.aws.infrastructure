@@ -1,0 +1,31 @@
+ Example Terraform Variables File
+ Copy this file to terraform.tfvars and customize for your environment
+
+ General Configuration
+aws_region   = "us-east-1"
+environment  = "dev"
+project_name = "myapp"
+
+ VPC Configuration
+vpc_cidr = "10.0.0.0/16"
+
+ EKS Configuration
+eks_version         = "1.28"
+node_instance_types = ["t3.medium"]
+desired_capacity    = 2
+min_capacity        = 1
+max_capacity        = 5
+
+ Enable public access to EKS API (set to false for production)
+eks_endpoint_public_access = true
+eks_public_access_cidrs    = ["0.0.0.0/0"]   Replace with your IP for better security
+
+ RDS Configuration
+db_instance_class           = "db.t3.medium"
+db_allocated_storage        = 50
+db_max_allocated_storage    = 200
+db_name                     = "appdb"
+db_multi_az                 = false   Set to true for production
+db_backup_retention_period  = 7
+db_deletion_protection      = false   Set to true for production
+db_skip_final_snapshot      = true    Set to false for production
