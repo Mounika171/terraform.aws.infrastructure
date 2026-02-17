@@ -1,5 +1,5 @@
-Development Environment Configuration
-This file provisions the complete AWS infrastructure for the dev environment
+# Development Environment Configuration
+# This file provisions the complete AWS infrastructure for the dev environment
 
 terraform {
   required_version = ">= 1.6.0"
@@ -15,7 +15,7 @@ terraform {
     }
   }
 
- Backend configuration for state management
+ #Backend configuration for state management
   backend "s3" {
     bucket         = "terraform-state-myapp-dev"
     key            = "dev/terraform.tfstate"
@@ -25,7 +25,7 @@ terraform {
   }
 }
 
-AWS Provider Configuration
+# AWS Provider Configuration
 provider "aws" {
   region = var.aws_region
 
@@ -39,12 +39,12 @@ provider "aws" {
   }
 }
 
-Data source for availability zones
+# Data source for availability zones
 data "aws_availability_zones" "available" {
   state = "available"
 }
 
-Local variables
+# Local variables
 locals {
   availability_zones = slice(data.aws_availability_zones.available.names, 0, 3)
   
@@ -87,7 +87,7 @@ module "eks" {
   depends_on = [module.vpc]
 }
 
-RDS Module
+# RDS Module
 module "rds" {
   source = "../../modules/rds"
 
