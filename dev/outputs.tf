@@ -1,4 +1,4 @@
- VPC Outputs
+# VPC Outputs
 output "vpc_id" {
   description = "VPC ID"
   value       = module.vpc.vpc_id
@@ -14,7 +14,7 @@ output "public_subnet_ids" {
   value       = module.vpc.public_subnet_ids
 }
 
- EKS Outputs
+# EKS Outputs
 output "eks_cluster_id" {
   description = "EKS cluster ID"
   value       = module.eks.cluster_id
@@ -40,7 +40,7 @@ output "configure_kubectl" {
   value       = "aws eks update-kubeconfig --region ${var.aws_region} --name ${module.eks.cluster_id}"
 }
 
- RDS Outputs
+# RDS Outputs
 output "rds_endpoint" {
   description = "RDS instance endpoint"
   value       = module.rds.db_instance_endpoint
@@ -66,7 +66,7 @@ output "rds_secret_arn" {
   value       = module.rds.secret_arn
 }
 
- General Outputs
+# General Outputs
 output "environment" {
   description = "Environment name"
   value       = var.environment
