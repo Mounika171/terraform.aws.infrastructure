@@ -1,4 +1,4 @@
- General Variables
+# General Variables
 variable "aws_region" {
   description = "AWS region for resources"
   type        = string
@@ -17,14 +17,14 @@ variable "project_name" {
   default     = "myapp"
 }
 
- VPC Variables
+# VPC Variables
 variable "vpc_cidr" {
   description = "CIDR block for VPC"
   type        = string
   default     = "10.0.0.0/16"
 }
 
- EKS Variables
+# EKS Variables
 variable "eks_version" {
   description = "Kubernetes version"
   type        = string
@@ -67,7 +67,7 @@ variable "eks_public_access_cidrs" {
   default     = ["0.0.0.0/0"]
 }
 
- RDS Variables
+# RDS Variables
 variable "db_instance_class" {
   description = "RDS instance class"
   type        = string
